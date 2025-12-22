@@ -1,0 +1,11 @@
+@import "bootstrap";
+
+@font-face {
+  font-family: "chicoree";
+
+  /* Браузер сначала попробует найти шрифт локально */
+  src: local("chicoree"),
+       /* Если не получилось, загрузит woff2 */
+       url("/fonts/ofont.ru_Adventure Indiana.ttf") format("woff"),
+       /* Если браузер не поддерживает woff2, загрузит woff */
+}
