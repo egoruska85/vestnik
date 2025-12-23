@@ -71,4 +71,4 @@ gem "devise"
 gem 'devise-bootstrap-views'
 
 # Gems admins
-# gem 'rails_admin', '~> 3.3'
+gem 'rails_admin', '~> 3.3'
