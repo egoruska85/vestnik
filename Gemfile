@@ -40,6 +40,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Gems for styles
 gem 'bootstrap', '~> 5.3.5'
 gem "sassc-rails"
 
@@ -64,3 +65,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Gems authenticatable
+gem "devise"
+gem 'devise-bootstrap-views'
+
+# Gems admins
+# gem 'rails_admin', '~> 3.3'
