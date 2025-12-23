@@ -72,3 +72,8 @@ gem 'devise-bootstrap-views'
 
 # Gems admins
 gem 'rails_admin', '~> 3.3'
+
+# Gems locales
+gem 'devise-i18n'
+gem 'rails-i18n'
+gem 'rails_admin-i18n'

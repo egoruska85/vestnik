@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
 
       t.boolean :admin
       t.string :username
-      t.string :phone, null: false
+      t.string :phone
       t.string :otp_code
       t.datetime :otp_sent_at
 
