@@ -56,7 +56,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_23_102946) do
     t.datetime "remember_created_at"
     t.boolean "admin"
     t.string "username"
-    t.string "phone", null: false
+    t.string "phone"
     t.string "otp_code"
     t.datetime "otp_sent_at"
     t.datetime "created_at", null: false
