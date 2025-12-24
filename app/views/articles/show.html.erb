@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= render 'navbar' %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-0 col-lg-2">
+  fsfdsfs
+        </div>
+        <div class="col-sm-12 col-lg-8">
+          <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                  <h3><b><%= @article.title %></b></h3>
+                  <p>Автор: <%= @article.user.username %>; Дата: <%= @article.created_at.strftime('%d.%m.%Y') %>; Время: <%= @article.created_at.strftime('%H:%M:%S')%></p>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <%= image_tag(@article.picture, style:'width: 18rem;') %>
+              </div>
+            </div>
+
+            <hr>
+            <p>
+              <%= @article.body %>
+            </p>
+            <hr>
+            <p>Комментарии: <%= @article.comments.count %></p>
+
+              <div class="row">
+                <% @article.comments.each do |comment| %>
+                <div class="col-4 col-lg-2 border">
+                  <div class="h6 pb-2 mb-2 text-primary">
+                    <%= comment.user.username %>
+                  </div>
+                  <span class="border" style="font-size: 12px;">
+                    Дата: <%= comment.created_at.strftime('%d.%m.%Y') %>
+                    <br>
+                    Время: <%= comment.created_at.strftime('%H:%M:%S') %>
+                  </span>
+                </div>
+                <div class="col-6 col-lg-8">
+                  <span class="border"><%= comment.body %></span>
+
+                </div>
+                <hr>
+                <% end %>
+                <%= form_for([@article, @article.comments.build]) do |f| %>
+                <p>
+                  <% if user_signed_in? %>
+                      <%= f.text_field :user_id, value: current_user.id, type:"hidden", class:"form-control"%>
+                    <% else %>
+                      <%= f.text_field :user_id, value: "3", type:"hidden", class:"form-control" %>
+                    <% end %>
+                  </p>
+                  <p>
+                    <%= f.label "Напишите комментарий" %>
+                    <%= f.text_area :body, class:"form-control" %>
+                  </p>
+
+                  <p><%= f.submit "Принять", class:"btn btn-success btn-sm" %></p>
+
+                <% end %>
+
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-0 col-lg-2">
+dsfdsfsd
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
