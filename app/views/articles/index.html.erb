@@ -9,10 +9,10 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2">
+        <div class="col-sm-0 col-lg-2 fixed2">
   fsfdsfs
         </div>
-        <div class="col-8">
+        <div class="col-sm-12 col-lg-8">
           <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <center><h3><b>НОВОСТИ</b></h3></center>
             <hr>
@@ -26,7 +26,7 @@
                     Подробнее
                   <% end %>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-12">
                   Опубликовал: <%= article.user.username %>; Дата: <%= article.created_at.strftime('%d.%m.%Y') %>
                 </div>
               </div>
@@ -34,20 +34,20 @@
 
               <br>
               <div class="row">
-                <div class="col-4">
-                  <%= image_tag(article.picture, style:"width: 20rem;") %>
+                <div class="col-4 col-lg-2">
+                  <%= image_tag(article.picture, style:"width: 6rem;") %>
                 </div>
-                <div class="col-8">
-                  <%= article.body %>
+                <div class="col-8 col-lg-10">
+                  <%= simple_format article.body.truncate_words(30) %>
                 </div>
               </div>
-
+              <hr>
             <% end %>
             <hr>
 
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-sm-0 col-lg-2 fixed2">
 dsfdsfsd
         </div>
       </div>

@@ -9,10 +9,10 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-0 col-lg-2">
+        <div class="col-0 col-lg-2 fixed2">
   fsfdsfs
         </div>
-        <div class="col-sm-12 col-lg-8">
+        <div class="col-12 col-lg-8">
           <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <div class="row">
               <div class="col-sm-12 col-lg-6">
@@ -26,7 +26,7 @@
 
             <hr>
             <p>
-              <%= @article.body %>
+              <%= simple_format @article.body %>
             </p>
             <hr>
             <p>Комментарии: <%= @article.comments.count %></p>
@@ -69,7 +69,7 @@
               </div>
           </div>
         </div>
-        <div class="col-sm-0 col-lg-2">
+        <div class="col-0 col-lg-2 fixed2">
 dsfdsfsd
         </div>
       </div>
