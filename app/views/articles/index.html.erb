@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= render 'navbar' %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+  fsfdsfs
+        </div>
+        <div class="col-8">
+          <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <center><h3><b>НОВОСТИ</b></h3></center>
+            <hr>
+            <h6>Все новости</h6>
+            <hr>
+            <% @articles.each do |article| %>
+              <h3><%= article.title %></h3>
+              <div class="row">
+                <div class="col-8">
+                  <%= link_to article_path(article), style:"text-decoration: none; font-size: 15px;" do %>
+                    Подробнее
+                  <% end %>
+                </div>
+                <div class="col-4">
+                  Опубликовал: <%= article.user.username %>; Дата: <%= article.created_at.strftime('%d.%m.%Y') %>
+                </div>
+              </div>
+
+
+              <br>
+              <div class="row">
+                <div class="col-4">
+                  <%= image_tag(article.picture, style:"width: 20rem;") %>
+                </div>
+                <div class="col-8">
+                  <%= article.body %>
+                </div>
+              </div>
+
+            <% end %>
+            <hr>
+
+          </div>
+        </div>
+        <div class="col-2">
+dsfdsfsd
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
