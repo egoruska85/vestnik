@@ -1,1 +1,56 @@
-<%= render 'navbar' %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= render 'navbar' %>
+    <%= render 'carousel' %>
+
+
+    <script>
+    const track = document.querySelector('.ads-track');
+    const slides = document.querySelectorAll('.ads-slide');
+    const prev = document.querySelector('.ads-nav.prev');
+    const next = document.querySelector('.ads-nav.next');
+    const dotsBox = document.querySelector('.ads-dots');
+
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.onclick = () => go(i);
+      dotsBox.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.ads-dots span');
+
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function go(i) {
+      index = i;
+      update();
+    }
+
+    prev.onclick = () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    };
+
+    next.onclick = () => {
+      index = (index + 1) % slides.length;
+      update();
+    };
+
+    setInterval(() => next.click(), 16000);
+    update();
+    </script>
+
+
+  </body>
+</html>
