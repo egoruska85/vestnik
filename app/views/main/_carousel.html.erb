@@ -1,0 +1,28 @@
+<div class="ads-carousel">
+  <div class="ads-track">
+
+    <div class="ads-slide" style="background-image:url('<%= rails_blob_url(@first_slide.image) %>')">
+      <div class="ads-content">
+        <h2><%= @first_slide.title %></h2>
+        <p><%= @first_slide.body %></p>
+        <a href="<%= @first_slide.link %>" class="ads-btn">Подробнее</a>
+      </div>
+    </div>
+    <% @slides.each do |slide| %>
+        <div class="ads-slide" style="background-image:url('<%= rails_blob_url(slide.image) %>')">
+          <div class="ads-content">
+            <h2><%= slide.title %></h2>
+            <p><%= slide.body %></p>
+            <a href="<%= slide.link %>" class="ads-btn">Подробнее</a>
+          </div>
+        </div>
+    <% end %>
+
+
+  </div>
+
+  <button class="ads-nav prev">‹</button>
+  <button class="ads-nav next">›</button>
+
+  <div class="ads-dots"></div>
+</div>
