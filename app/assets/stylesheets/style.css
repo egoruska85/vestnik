@@ -101,3 +101,24 @@
 .ads-dots span.active {
   opacity: 1;
 }
+
+.responsive-heading {
+  font-size: 1.75rem; /* h3 */
+}
+
+@media (max-width: 768px) {
+  .responsive-heading {
+    font-size: 1rem; /* h6 */
+  }
+}
+
+
+.responsive-heading-text {
+  font-size: 1rem; /* h3 */
+}
+
+@media (max-width: 768px) {
+  .responsive-heading-text {
+    font-size: 0.6rem; /* h6 */
+  }
+}

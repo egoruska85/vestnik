@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def set_variable
     @f = About.last
+    
   end
 
   def set_locale
