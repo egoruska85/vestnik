@@ -1,0 +1,6 @@
+ru:
+  pagination:
+    first_page: "Начало"
+    previous_page: "Последняя"
+    next_page: "Назад"
+    last_page: "Вперед"
