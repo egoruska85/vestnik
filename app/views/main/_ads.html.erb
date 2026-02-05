@@ -1,0 +1,66 @@
+<div class="container">
+  <center><h2>Объявления</h2></center>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+
+      <% @categories.each do |category| %>
+        <%= link_to category_path(category), class:"btn" do %>
+          <%= category.name %>
+        <% end %>
+      <% end %>
+      <ul>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Остальные
+        </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <% if @ads.present? %>
+      <% @ads.each do |ad| %>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded" >
+          <div class="row">
+            <div class="col-3 col-lg-1">
+              <div class="card" style="width: absolute;">
+                <%= image_tag(ad.images.first, class:"card-img-top") %>
+              </div>
+            </div>
+            <div class="col-6 col-lg-8">
+              <%= link_to ad_path(ad), style:"text-decoration: none; color: black;" do %>
+                <h3 class="responsive-heading"><%= ad.title %></h3>
+                <span class="badge"> Подробнее</span>
+              <% end %>
+            </div>
+            <div class="col-3 col-lg-3">
+              <h6 class="responsive-heading-text">Категория: <%= ad.category.name %></h6>
+            </div>
+            <hr>
+            <div class="col-6 col-lg-6">
+              <h6 class="responsive-heading-text"><%= simple_format ad.body.truncate_words(7) %></h6>
+              <br>
+            </div>
+            <div class="col-6 col-lg-6">
+              <h3 class="responsive-heading-text"><%= ad.user.username %></h3>
+              <%= phone_to ad.phone do %>
+                <span class="badge text-bg-secondary">Созвониться</span>
+              <% end %>
+            </div>
+
+
+        </div>
+        </div>
+
+      <% end %>
+    <% else %>
+      <h3>Объявления нет</h3>
+    <% end %>
+  </div>
+</div>
