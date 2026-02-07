@@ -1,4 +1,5 @@
 <div class="ads-carousel">
+  <% if @slises.present? or @first_slise.present? %>
   <div class="ads-track">
 
     <div class="ads-slide" style="background-image:url('<%= rails_blob_url(@first_slide.image) %>')">
@@ -25,4 +26,17 @@
   <button class="ads-nav next">›</button>
 
   <div class="ads-dots"></div>
+  <% else %>
+  <div class="ads-track">
+
+    <div class="ads-slide" style="background-image:url('images/123.png')">
+      <div class="ads-content">
+
+        <h2>Здесь может быть ваша реклама</h2>
+        <p></p>
+        <a href="<%= @first_slide.link %>" class="ads-btn">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
