@@ -103,18 +103,18 @@
 }
 
 .responsive-heading {
-  font-size: 1.75rem; /* h3 */
+  font-size: 1.15rem; /* h3 */
 }
 
 @media (max-width: 768px) {
   .responsive-heading {
-    font-size: 1rem; /* h6 */
+    font-size: 0.75rem; /* h6 */
   }
 }
 
 
 .responsive-heading-text {
-  font-size: 1rem; /* h3 */
+  font-size: 0.85rem; /* h3 */
 }
 
 @media (max-width: 768px) {
