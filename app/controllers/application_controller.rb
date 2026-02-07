@@ -1,14 +1,15 @@
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
-  before_action :set_locale
+  before_action :set_locale, :set_variable
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
   def set_variable
-    @f = About.last
-    
+
+    @main_categories = Category.where(main: true)
+    @other_categories = Category.where(main: nil)
   end
 
   def set_locale

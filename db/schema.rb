@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_05_070816) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_07_150337) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_05_070816) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["user_id"], name: "index_ads_on_user_id"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_05_070816) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "main"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -82,12 +84,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_05_070816) do
     t.string "title"
     t.text "body"
     t.string "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
