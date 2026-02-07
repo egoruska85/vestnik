@@ -5,6 +5,6 @@ class MainController < ApplicationController
 
     @ads = Ad.page(params[:page])
 
-    @categories = Category.all
+
   end
 end
