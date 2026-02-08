@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
     @main_categories = Category.where(main: true)
     @other_categories = Category.where(main: nil)
+    @categories = Category.all
   end
 
   def set_locale

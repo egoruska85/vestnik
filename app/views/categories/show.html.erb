@@ -11,11 +11,11 @@
       <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
           <%= link_to "Категории", categories_path, class:"navbar-brand" %>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id=" navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               <% @main_categories.each do |category| %>
                 <%= link_to category_path(category), class:"nav-link active", style:"color: yellow" do %>
@@ -23,7 +23,25 @@
                 <% end %>
                 <hr>
               <% end %>
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Ещё
+                </a>
+                <ul class="dropdown-menu">
+                  <% @other_categories.each do |category| %>
+                    <li>
+                      <%= link_to category_path(category), class:"nav-link active", style:"color: yellow" do %>
+                        <%= category.name %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+
             </ul>
+
           </div>
         </div>
       </nav>
@@ -41,7 +59,8 @@
                 <div class="col-6 col-lg-8">
                   <%= link_to ad_path(ad), style:"text-decoration: none; color: white;" do %>
                     <h3 class="responsive-heading"><%= ad.title %></h3>
-                    <span class="badge"> Подробнее</span>
+                    <span class="badge rounded-pill text-bg-primary"><center><%= ad.price %> &#8381;</center></span>
+                    <span class="badge rounded-pill text-bg-success">Подробнее</span>
                   <% end %>
                 </div>
                 <div class="col-3 col-lg-3">

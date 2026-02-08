@@ -1,5 +1,5 @@
 <div class="ads-carousel">
-  <% if @slises.present? or @first_slise.present? %>
+  <% if @slides.present? or @first_slide.present? %>
   <div class="ads-track">
 
     <div class="ads-slide" style="background-image:url('<%= rails_blob_url(@first_slide.image) %>')">
@@ -14,7 +14,13 @@
           <div class="ads-content">
             <h2><%= slide.title %></h2>
             <p><%= slide.body %></p>
+            <% if slide.link.present? %>
             <a href="<%= slide.link %>" class="ads-btn">Подробнее</a>
+            <% else %>
+              <%= mail_to "egorarbuzov@gmail.com", class:"ads-btn" do %>
+                Подробнее
+              <% end %>
+            <% end %>
           </div>
         </div>
     <% end %>
@@ -34,7 +40,10 @@
 
         <h2>Здесь может быть ваша реклама</h2>
         <p></p>
-        <a href="<%= @first_slide.link %>" class="ads-btn">Подробнее</a>
+        <%= mail_to "egorarbuzov@gmail.com", class:"ads-btn" do %>
+          Подробнее
+        <% end %>
+
       </div>
     </div>
   </div>
