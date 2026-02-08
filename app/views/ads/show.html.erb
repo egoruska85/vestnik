@@ -6,5 +6,46 @@
   </head>
   <body>
     <%= render 'navbar' %>
+    <center><h2><%= @ad.title %></h2></center>
+    <div class="container">
+      <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="gallery-wrapper">
+
+              <!-- БОЛЬШОЙ ПРЕДПРОСМОТР -->
+              <div class="preview">
+                <%= image_tag(@ad.images.first, id:"previewImage", alt:"preview") %>
+              </div>
+
+              <!-- МИНИАТЮРЫ -->
+              <div class="gallery">
+                <% @ad.images.each do |image| %>
+                  <%= image_tag(image, class:"thumb", alt:"preview") %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <hr>
+            <div class="" style="min-height: 200px;">
+              <h6>Описание:</h6>
+              <%= simple_format @ad.body %>
+            </div>
+
+            <hr>
+              Категория: <%= @ad.category.name %>
+            <hr>
+            Цена: <%= @ad.price %> &#8381;
+            <hr>
+            Имя: <%= @ad.user.username %>
+            <hr>
+            <%= phone_to @ad.phone, class:"btn btn-success" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
