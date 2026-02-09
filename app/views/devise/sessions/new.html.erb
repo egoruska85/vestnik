@@ -1,4 +1,10 @@
 <div class="container shadow-lg p-3 mb-5 bg-body rounded border border-light" style="width: 400px;">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
   <center>
     <h1><%= t('.sign_in') %></h1>
 
