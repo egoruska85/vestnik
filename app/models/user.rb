@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  def login
+    @login || username || email || phone
+  end
+
   # Метод позволяет искать пользователя по трем полям
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

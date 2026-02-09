@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= render "navbar" %>
+    <center><h2>Редактирование</h2></center>
+    <div class="container">
+      <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="row">
+          <div class="col-12 col-lg-4">
+            <div class="gallery-wrapper">
+
+              <!-- БОЛЬШОЙ ПРЕДПРОСМОТР -->
+              <div class="preview">
+                <%= image_tag(@ad.images.first, id:"previewImage", alt:"preview") %>
+              </div>
+
+              <!-- МИНИАТЮРЫ -->
+              <div class="gallery">
+                <% @ad.images.each do |image| %>
+                  <%= image_tag(image, class:"thumb", alt:"preview") %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-12 col-lg-8">
+            <%= form_for :ad, url: ad_path(@ad), method: :patch do |f| %>
+            <p>
+              <%= f.label "Главная" %>
+              <%= f.text_field :title, class:"form-control" %>
+            </p>
+            <p>
+              <%= f.label "Описание" %>
+              <%= f.text_area :body, class:"form-control" %>
+            </p>
+            <div class="row">
+              <div class="col-6 col-lg-3">
+                <p>
+                  <%= f.label "Цена" %>
+                  <%= f.number_field :price, class:"form-control" %>
+                </p>
+              </div>
+              <div class="col-4 col-lg-3">
+                <%= f.label "Имя" %>
+                <h4><%= @ad.user.username %></h4>
+                <p>Можно изменить в вашем профиле</p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <%= f.label "Категория" %>
+                <%= f.select :category_id, options_for_select(@categories.collect{ |category| [category.name, category.id] }), {}, {class: "form-control form-control-sm"} %>
+              </div>
+              <div class="col-6 col-lg-6">
+                <p>
+                  <%= f.label "Телефон" %>
+                  <%= f.text_field :phone, class:"form-control" %>
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <p>
+                  <%= f.label "Изображения" %>
+                  <%= f.file_field :images, multiple: true, class:"btn" %>
+                </p>
+              </div>
+            </div>
+
+            <br>
+            <p>
+
+              <%= f.submit "Сохранить", class:"btn btn-success" %>
+            </p>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
