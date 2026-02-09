@@ -1,0 +1,2 @@
+class UserpanelsController < ApplicationController
+end
