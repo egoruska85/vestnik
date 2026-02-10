@@ -1,0 +1,50 @@
+<footer class="bg-dark text-light py-5 mt-auto">
+  <div class="container-fluid">
+
+    <div class="row gy-4">
+      <!-- О нас -->
+      <div class="col-lg-4 col-md-6 col-6">
+        <h5 class="text-uppercase mb-3">Вестник Ставрово</h5>
+        <p class="small text-muted">Проект по деловой жизни посёлка городского типа Ставрово</p>
+      </div>
+
+      <!-- Навигация -->
+      <div class="col-lg-4 col-md-6 col-6">
+        <h5 class="text-uppercase mb-3">Ссылки</h5>
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Главная", root_path, class:"text-decoration-none text-muted" %>
+          </li>
+          <li>
+            <%= link_to "О нас", abouts_path, class:"text-decoration-none text-muted" %>
+          </li>
+          <li>
+            <%= link_to "Контакты", contacts_path, class:"text-decoration-none text-muted" %>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Соцсети -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <h5 class="text-uppercase mb-3">Сообщество</h5>
+        <div class="d-flex gap-3">
+           <a href="#" class="text-light"><i class="bi bi-github"></i></a>
+           <a href="#" class="text-light"><i class="bi bi-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Подписка -->
+
+    </div>
+
+    <hr class="my-4 border-secondary">
+
+    <div class="row align-items-center">
+      <center>
+        <div class="col-md-6 text-center ">
+          <span class="small text-muted">Вестник Ставрово &copy; <%= Time.now.year %> Все права защищены.</span>
+        </div>
+      </center>
+    </div>
+  </div>
+</footer>

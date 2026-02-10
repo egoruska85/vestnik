@@ -24,11 +24,11 @@ class AdsController < ApplicationController
   end
   def update
     @ad = Ad.find(params[:id])
-    
+
     # Получаем разрешенные параметры
     filtered_params = ad_params
-    
-    # Проверяем, прикреплены ли новые файлы. 
+
+    # Проверяем, прикреплены ли новые файлы.
     # В Rails поля файлов часто приходят как [""] (массив с пустой строкой), поэтому используем .compact_blank
     if params[:ad][:images].compact_blank.blank?
       filtered_params.delete(:images)
@@ -49,6 +49,13 @@ class AdsController < ApplicationController
       format.html { redirect_to ads_path, status: :see_other, notice: "Запись удалена" }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_active
+    @ad = Ad.find(params[:id])
+    @ad.update(active: !@ad.active)
+
+    redirect_back fallback_location: ads_path
   end
 
   private

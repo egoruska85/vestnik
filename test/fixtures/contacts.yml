@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone1: MyString
+  phone2: MyString
+  phone3: MyString
+  telegram: MyString
+  max: MyString
+  whatsapp: MyString
+  vk: MyString
+
+two:
+  phone1: MyString
+  phone2: MyString
+  phone3: MyString
+  telegram: MyString
+  max: MyString
+  whatsapp: MyString
+  vk: MyString
