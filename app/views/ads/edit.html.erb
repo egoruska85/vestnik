@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="col-12 col-lg-8">
-            <%= form_for :ad, url: ad_path(@ad), method: :patch do |f| %>
+            <%= form_with model: @ad, local: true do |f| %>
             <p>
               <%= f.label "Главная" %>
               <%= f.text_field :title, class:"form-control" %>
@@ -51,7 +51,11 @@
               </div>
               <div class="col-12 col-lg-6">
                 <%= f.label "Категория" %>
-                <%= f.select :category_id, options_for_select(@categories.collect{ |category| [category.name, category.id] }), {}, {class: "form-control form-control-sm"} %>
+                
+                <%= f.collection_select :category_id, Category.all, :id, :name, 
+                                                                        { selected: @ad.category_id }, 
+                                                                        { class: "form-control-sm" } 
+                                                                        %>
               </div>
               <div class="col-6 col-lg-6">
                 <p>

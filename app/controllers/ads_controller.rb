@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
 
@@ -10,6 +11,7 @@ class AdsController < ApplicationController
     @ad.save
     redirect_to @ad
   end
+
   def show
     @ad = Ad.find(params[:id])
   end
@@ -22,11 +24,20 @@ class AdsController < ApplicationController
   end
   def update
     @ad = Ad.find(params[:id])
+    
+    # Получаем разрешенные параметры
+    filtered_params = ad_params
+    
+    # Проверяем, прикреплены ли новые файлы. 
+    # В Rails поля файлов часто приходят как [""] (массив с пустой строкой), поэтому используем .compact_blank
+    if params[:ad][:images].compact_blank.blank?
+      filtered_params.delete(:images)
+    end
 
-    if @ad.update(ad_params)
-      redirect_to @ad
+    if @ad.update(filtered_params)
+      redirect_to @ad, notice: "Объявление обновлено"
     else
-      render action: 'edit'
+      render :edit, status: :unprocessable_entity
     end
   end
 
