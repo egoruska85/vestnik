@@ -35,7 +35,7 @@
             </p>
             <p>
               <%= f.label "Описание" %>
-              <%= f.text_area :body, class:"form-control" %>
+              <%= f.text_area :body, class:"form-control", rows:"10" %>
             </p>
             <div class="row">
               <div class="col-6 col-lg-3">
@@ -51,10 +51,10 @@
               </div>
               <div class="col-12 col-lg-6">
                 <%= f.label "Категория" %>
-                
-                <%= f.collection_select :category_id, Category.all, :id, :name, 
-                                                                        { selected: @ad.category_id }, 
-                                                                        { class: "form-control-sm" } 
+
+                <%= f.collection_select :category_id, Category.all, :id, :name,
+                                                                        { selected: @ad.category_id },
+                                                                        { class: "form-control-sm" }
                                                                         %>
               </div>
               <div class="col-6 col-lg-6">
@@ -73,7 +73,7 @@
 
             <br>
             <p>
-
+              <%= link_to "Удалить", ad_path(@ad), data: { turbo_method: :delete, turbo_confirm: "Точно удалить?" }, class: "btn btn-danger" %>
               <%= f.submit "Сохранить", class:"btn btn-success" %>
             </p>
 
