@@ -1,6 +1,10 @@
 <div class="container">
   <center><h2>Объявления</h2></center>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <nav class="sticky-top">
+  <center><%= link_to "Разместить объявление", new_ad_path, class:"btn btn-primary" %></center>
+  </nav>
+  <br>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <%= link_to "Категории", categories_path, class:"navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -11,24 +11,10 @@
       <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
         <div class="row">
           <div class="col-12 col-lg-4">
-            <div class="gallery-wrapper">
 
-              <!-- БОЛЬШОЙ ПРЕДПРОСМОТР -->
-              <div class="preview">
-                <%= image_tag(@ad.images.first, id:"previewImage", alt:"preview") %>
-              </div>
-
-              <!-- МИНИАТЮРЫ -->
-              <div class="gallery">
-                <% @ad.images.each do |image| %>
-                  <%= image_tag(image, class:"thumb", alt:"preview") %>
-                <% end %>
-              </div>
-
-            </div>
           </div>
           <div class="col-12 col-lg-8">
-            <%= form_with model: @ad, local: true do |f| %>
+            <%= form_for :ad, url: ads_path do |f| %>
             <p>
               <%= f.label "Главная" %>
               <%= f.text_field :title, class:"form-control" %>
@@ -41,21 +27,15 @@
               <div class="col-6 col-lg-3">
                 <p>
                   <%= f.label "Цена" %>
-                  <%= f.number_field :price, class:"form-control" %>
+                  <%= f.number_field :price, class:"form-control", placeholder:"₽" %>
                 </p>
               </div>
               <div class="col-4 col-lg-3">
-                <%= f.label "Имя" %>
-                <h4><%= @ad.user.username %></h4>
-                <p>Можно изменить в вашем профиле</p>
+
               </div>
               <div class="col-12 col-lg-6">
                 <%= f.label "Категория" %>
-                
-                <%= f.collection_select :category_id, Category.all, :id, :name, 
-                                                                        { selected: @ad.category_id }, 
-                                                                        { class: "form-control-sm" } 
-                                                                        %>
+                <%= f.select :category_id, options_for_select(@categories.collect{ |category| [category.name, category.id] }), {}, {class: "form-control form-control-sm"} %>
               </div>
               <div class="col-6 col-lg-6">
                 <p>
