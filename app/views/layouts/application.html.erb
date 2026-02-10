@@ -23,11 +23,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
 
     <%= yield %>
-    <div class="container">
-
-    </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>

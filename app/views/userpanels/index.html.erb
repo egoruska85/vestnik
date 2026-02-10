@@ -31,6 +31,22 @@
                   </svg>
                 <% end %>
                 <%= link_to "Удалить", ad_path(ad), data: { turbo_method: :delete, turbo_confirm: "Точно удалить?" }, class: "btn btn-danger btn-sm" %>
+                <% if ad.public == true %>
+                  Опубликованно
+                <% else %>
+                  На модерации
+                <% end %>
+                <%= button_to toggle_active_ad_path(ad),
+                      method: :patch,
+                      class: "btn btn-sm" do %>
+
+                  <% if ad.active %>
+                    ✅ Активно
+                  <% else %>
+                    ⛔ Не активно
+                  <% end %>
+
+                <% end %>
               </div>
             </div>
             <hr>
