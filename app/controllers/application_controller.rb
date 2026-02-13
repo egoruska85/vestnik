@@ -7,10 +7,20 @@ class ApplicationController < ActionController::Base
   private
 
   def set_variable
-
     @main_categories = Category.where(main: true)
     @other_categories = Category.where(main: nil)
     @categories = Category.all
+
+    if params[:q] != nil
+      params[:q].each do |key, value|
+        value.capitalize!
+      end
+      #@searced_message = "#{t('ad.serached_name')}" + params[:q][:title_or_body_cont]
+    end
+
+    @q = Ad.ransack(params[:q])
+
+    @ads = @q.result(distinct: true)
   end
 
   def set_locale

@@ -4,3 +4,7 @@ ru:
     previous_page: "Последняя"
     next_page: "Назад"
     last_page: "Вперед"
+  ad:
+    serached_name: "Всё что найдено по запросу: "
+  navbar:
+    search: "Поиск"  
