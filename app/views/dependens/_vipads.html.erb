@@ -1,0 +1,18 @@
+<div class="carousel-container">
+  <div class="carousel-track">
+    <% @vip_ads.each do |ad| %>
+      <div class="card">
+        <div class="row">
+          <div class="col-4">
+            <%= image_tag(ad.images.first, style:'width: 70px; height: 70px;') %>
+          </div>
+          <div class="col-8">
+            <%= link_to ad_path(ad), class:'nav-link' do %>
+              <%= ad.title %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

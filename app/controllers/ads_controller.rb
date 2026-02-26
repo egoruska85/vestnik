@@ -1,6 +1,10 @@
 class AdsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def index
+    redirect_to root_path
+  end
+
   def new
 
   end
