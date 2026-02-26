@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @main_categories = Category.where(main: true)
     @other_categories = Category.where(main: nil)
     @categories = Category.all
+    @vip_ads = Ad.all
 
     if params[:q] != nil
       params[:q].each do |key, value|

@@ -21,3 +21,15 @@ thumbs.forEach(thumb => {
     thumb.classList.add('active');
   });
 });
+
+
+const track = document.querySelector('.carousel-container');
+
+setInterval(() => {
+  // Если долистали до конца — прыгаем в начало, иначе скроллим вниз
+  if (track.scrollTop + track.clientHeight >= track.scrollHeight) {
+    track.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    track.scrollBy({ top: 110, behavior: 'smooth' });
+  }
+}, 3000);

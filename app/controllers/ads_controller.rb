@@ -2,8 +2,7 @@ class AdsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-
-    #@page_title = t('product.all_products')
+    redirect_to root_path
   end
 
   def new

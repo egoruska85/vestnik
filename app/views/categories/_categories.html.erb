@@ -1,0 +1,15 @@
+<div class="container">
+  <center><h2>Все категории</h2></center>
+  <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <div class="row">
+      <% @categories.each do |category| %>
+        <div class="col-6 col-lg-4">
+          <%= link_to category_path(category), class:"nav-link active", style:"color: yellow" do %>
+            <%= category.name %>
+          <% end %>
+          <hr>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,25 @@
   <body data-turbo="false">
     <%= render 'navbar' %>
     <%= render 'carousel' %>
-    <%= render 'ads' %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-0 col-lg-2">
+          <br><br><br>
+          <h6>Vip-Объявления</h6>
+          <hr>
+          <%= render 'dependens/vipads' %>
+          <hr>
+        </div>
+        <div class="col-12 col-lg-8">
+          <%= render 'ads' %>
+        </div>
+        <div class="col-0 col-lg-2">
+
+        </div>
+      </div>
+    </div>
+
 
     <script>
     const track = document.querySelector('.ads-track');

@@ -174,3 +174,36 @@
 .thumb.active {
   border-color: #3b82f6;
 }
+
+
+
+
+.carousel-container {
+  height: 640px; /* (Высота карточки 100px + отступ 10px) * 4 */
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; /* Скрываем скроллбар в Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Скрываем скроллбар в Chrome/Safari */
+}
+
+.carousel-track {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  height: 100px;
+  min-height: 100px;
+
+  color: white;
+  display: flex;
+
+  justify-content: center;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  font-family: sans-serif;
+}
